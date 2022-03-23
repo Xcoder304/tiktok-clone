@@ -1,0 +1,15 @@
+@import url("http://fonts.cdnfonts.com/css/proxima-nova-2");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+  font-family: "Proxima Nova", sans-serif !important;
+}
+html {
+  scroll-snap-type: y mandatory !important;
+}

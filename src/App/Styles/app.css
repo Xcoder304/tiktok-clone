@@ -1,0 +1,17 @@
+.container {
+  height: 100vh;
+  background: #2e2e2e;
+  display: grid;
+  place-content: center;
+}
+.video__container {
+  width: 80vw;
+  max-width: 400px;
+  height: 94vh;
+  overflow: scroll;
+  position: relative;
+  scroll-snap-type: y mandatory;
+}
+.video__container::-webkit-scrollbar {
+  display: none;
+}
