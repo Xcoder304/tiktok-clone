@@ -1,7 +1,8 @@
 .container {
   height: 100vh;
-  background: #2e2e2e;
+  background: #101010;
   display: grid;
+  position: relative;
   place-content: center;
 }
 .video__container {
@@ -14,4 +15,42 @@
 }
 .video__container::-webkit-scrollbar {
   display: none;
+}
+.logoWappper {
+  width: 160px;
+  height: 52px;
+  position: fixed;
+  top: 3%;
+  left: 4%;
+  cursor: pointer;
+}
+.logoWappper img {
+  width: 100%;
+  height: 100%;
+  filter: invert(1);
+}
+.userInfo__container {
+  position: fixed;
+  top: 5%;
+  right: 3%;
+  display: flex;
+  gap: 17px;
+  align-items: center;
+}
+.userinfo__uploadBtn {
+  color: #ef2950 !important;
+  border: 1px solid #ef2950 !important;
+}
+.userinfo__uploadBtn:hover {
+  background: rgba(239, 41, 80, 0.1) !important;
+}
+.userinfo__loginbtn {
+  color: #fff !important;
+  width: 100px;
+  padding: 6px 8px;
+  background: #ef2950 !important;
+}
+.openUserSettings {
+  color: #fff;
+  font-size: 1.2rem;
 }

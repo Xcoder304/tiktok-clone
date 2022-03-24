@@ -1,10 +1,15 @@
 import React from "react";
 import { MdAlbum } from "react-icons/md";
 import { ImMusic } from "react-icons/im";
+import "../Styles/video/footer.css";
+
 const VideoFooter = () => {
   return (
     <div className="video__footer">
       <h3 className="video__footer_username">@kaif</h3>
+      <div className="video__caption">
+        <p>#for you #4you #englishSongs #dualipa #foryoupage </p>
+      </div>
       <div className="songinfo">
         <div className="songname">
           <ImMusic className="musicIcon" />

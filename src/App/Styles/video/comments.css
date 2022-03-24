@@ -1,0 +1,119 @@
+.comments__container {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  background: #1c1c1c;
+  /* bottom: -500px; */
+  bottom: 0;
+  left: 0;
+  border: none;
+  border-radius: 5px;
+  z-index: 100;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: 0.3s ease-in;
+  transform: translateY(600px);
+}
+.comments__container.open {
+  transition: 0.3s ease-in;
+  transform: translateY(0);
+}
+.comments__container::-webkit-scrollbar {
+  display: none;
+}
+.comments__wapper {
+  padding: 15px 2%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.comment {
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+}
+.comment .comment__info {
+  display: flex;
+  padding: 0 5% 0 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.comment__info .userName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+.comment__info .time {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+}
+.comment__text {
+  margin-top: 5px;
+}
+.comment__text p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}
+/* closing button */
+.comment__closeButton {
+  width: 100%;
+  display: flex;
+  padding: 10px 3% 2px;
+  justify-content: flex-end;
+}
+.comment__closeButton .icon {
+  font-size: 1.7rem;
+  width: 30px;
+  height: 30px;
+  color: #ef2950;
+  border: none;
+  border-radius: 50%;
+}
+
+.comment__addComent {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  padding: 3px 2% 6px;
+  z-index: 120;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+.comment__addComent form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.comment__addComent form input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 400;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 500px;
+}
+.comment__addComent form .comment__btn {
+  width: 50px;
+  height: 50px;
+  background: #ef2950;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.comment__btn .icon {
+  font-size: 1.4rem;
+  color: #fff;
+}

@@ -1,23 +1,3 @@
-.video {
-  width: 100%;
-  height: 100%;
-  background: none;
-  border: none;
-  border-radius: 7px;
-  scroll-snap-align: start;
-  position: relative;
-  margin-bottom: 20px;
-  z-index: 30;
-}
-.video__player {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  border: none;
-  border-radius: 7px;
-}
-
-/* video Footer */
 .video__footer {
   width: 100%;
   position: absolute;
@@ -27,17 +7,25 @@
   padding: 10px 2%;
 }
 .video__footer .video__footer_username {
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   color: #fff;
   user-select: none;
   font-weight: 500;
+}
+.video__caption {
+  width: 100%;
+}
+.video__caption p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  word-spacing: 2px;
 }
 .video__footer .songinfo {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   user-select: none;
   pointer-events: none;
 }

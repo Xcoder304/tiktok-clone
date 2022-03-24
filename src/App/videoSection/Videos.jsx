@@ -1,10 +1,13 @@
 import { useState, useRef } from "react";
-import "./Styles/video.css";
+import "../Styles/video/video.css";
 import VideoFooter from "./VideoFooter";
+import VideoSideBar from "./VideoSideBar";
+import CommmentsSec from "./components/CommmentsSec";
 
 const Videos = () => {
   const [isVideoPlaying, SetVideoPlaying] = useState(false);
   const VideoPlay = useRef(null);
+  const [OpenComments, setComments] = useState(false);
 
   const PlayTheVideo = () => {
     SetVideoPlaying(!isVideoPlaying);
@@ -22,6 +25,9 @@ const Videos = () => {
         className="video__player"
       />
       <VideoFooter />
+      <VideoSideBar OpenComments={OpenComments} setComments={setComments} />
+      {/* sections */}
+      <CommmentsSec OpenComments={OpenComments} setComments={setComments} />
     </div>
   );
 };
