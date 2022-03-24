@@ -5,9 +5,9 @@
   place-content: center;
 }
 .video__container {
-  width: 80vw;
+  width: 90vw;
   max-width: 400px;
-  height: 94vh;
+  height: 550px;
   overflow: scroll;
   position: relative;
   scroll-snap-type: y mandatory;
