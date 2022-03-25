@@ -33,56 +33,6 @@ const CommmentsSec = ({ OpenComments, setComments }) => {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           </div>
         </div>
-
-        <div className="comment">
-          <div className="comment__info">
-            <span className="userName">kaif</span>
-            <span className="time">12-6-2020</span>
-          </div>
-          <div className="comment__text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-        </div>
-
-        <div className="comment">
-          <div className="comment__info">
-            <span className="userName">kaif</span>
-            <span className="time">12-6-2020</span>
-          </div>
-          <div className="comment__text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-        </div>
-
-        <div className="comment">
-          <div className="comment__info">
-            <span className="userName">kaif</span>
-            <span className="time">12-6-2020</span>
-          </div>
-          <div className="comment__text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-        </div>
-
-        <div className="comment">
-          <div className="comment__info">
-            <span className="userName">kaif</span>
-            <span className="time">12-6-2020</span>
-          </div>
-          <div className="comment__text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-        </div>
-
-        <div className="comment">
-          <div className="comment__info">
-            <span className="userName">kaif</span>
-            <span className="time">12-6-2020</span>
-          </div>
-          <div className="comment__text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-        </div>
       </div>
 
       {/* add comment */}

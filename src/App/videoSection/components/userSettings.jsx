@@ -14,8 +14,11 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
+import { auth } from "../../firebase/config";
+import { signOut } from "firebase/auth";
+import { Link } from "react-router-dom";
 
-const UserSettings = () => {
+const UserSettings = ({ user }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -25,14 +28,30 @@ const UserSettings = () => {
     setAnchorEl(null);
   };
 
+  const SignOutUser = () => {
+    signOut(auth).then(alert("Log Out Done"));
+  };
+
+  console.log(user);
+
   return (
     <div className="userInfo__container">
       <Button variant="outlined" size="medium" className="userinfo__uploadBtn">
         upload
       </Button>
-      <Button variant="contained" size="medium" className="userinfo__loginbtn">
-        log in
-      </Button>
+      {user ? (
+        ""
+      ) : (
+        <Link to="/login">
+          <Button
+            variant="contained"
+            size="medium"
+            className="userinfo__loginbtn"
+          >
+            log in
+          </Button>
+        </Link>
+      )}
 
       <React.Fragment>
         <Box
@@ -90,7 +109,7 @@ const UserSettings = () => {
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
           <MenuItem>
-            <Avatar /> Profile
+            <Avatar /> {user?.displayName}
           </MenuItem>
           <Divider />
           <MenuItem>
@@ -111,7 +130,7 @@ const UserSettings = () => {
             </ListItemIcon>
             Settings
           </MenuItem>
-          <MenuItem>
+          <MenuItem onClick={SignOutUser}>
             <ListItemIcon>
               <Logout fontSize="small" style={{ marginLeft: "5.7px" }} />
             </ListItemIcon>

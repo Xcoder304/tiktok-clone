@@ -3,18 +3,18 @@ import { MdAlbum } from "react-icons/md";
 import { ImMusic } from "react-icons/im";
 import "../Styles/video/footer.css";
 
-const VideoFooter = () => {
+const VideoFooter = ({ UserName, caption, songName }) => {
   return (
     <div className="video__footer">
-      <h3 className="video__footer_username">@kaif</h3>
+      <h3 className="video__footer_username">@{UserName}</h3>
       <div className="video__caption">
-        <p>#for you #4you #englishSongs #dualipa #foryoupage </p>
+        <p>{caption} </p>
       </div>
       <div className="songinfo">
         <div className="songname">
           <ImMusic className="musicIcon" />
           <span>
-            <p>Dua lipa lavtaing-lavtaing-tiktok-remix-2022</p>
+            <p>{songName}</p>
           </span>
         </div>
         <img

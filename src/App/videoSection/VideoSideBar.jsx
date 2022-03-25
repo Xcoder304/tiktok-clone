@@ -4,8 +4,16 @@ import { AiFillHeart } from "react-icons/ai";
 import { FaRegCommentDots } from "react-icons/fa";
 import { FiShare2 } from "react-icons/fi";
 import "../Styles/video/sidebar.css";
+import { db } from "../firebase/config";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
 
-const VideoSideBar = ({ OpenComments, setComments }) => {
+const VideoSideBar = ({
+  OpenComments,
+  setComments,
+  likes,
+  comments,
+  shares,
+}) => {
   const [isLike, setLike] = useState(false);
 
   return (
@@ -23,7 +31,7 @@ const VideoSideBar = ({ OpenComments, setComments }) => {
               onClick={() => setLike(!isLike)}
             />
           )}
-          <p>55</p>
+          <p>{isLike ? likes + 1 : likes}</p>
         </div>
 
         <div className="sidebar__option">
@@ -31,12 +39,12 @@ const VideoSideBar = ({ OpenComments, setComments }) => {
             className="icon CommentIcon"
             onClick={() => setComments(!OpenComments)}
           />
-          <p>15</p>
+          <p>{comments}</p>
         </div>
 
         <div className="sidebar__option">
           <FiShare2 className="icon ShareIcon" />
-          <p>15</p>
+          <p>{shares}</p>
         </div>
       </div>
     </div>
