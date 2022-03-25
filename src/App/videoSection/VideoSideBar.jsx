@@ -13,25 +13,23 @@ const VideoSideBar = ({
   likes,
   comments,
   shares,
+  LikeTheVideo,
+  hasLiked,
 }) => {
-  const [isLike, setLike] = useState(false);
-
   return (
     <div className="video__sidebar">
       <div className="sidebar__wapper">
         <div className="sidebar__option">
-          {isLike ? (
+          {hasLiked ? (
             <AiFillHeart
               className="icon HeartIcon isLike"
-              onClick={() => setLike(!isLike)}
+              onClick={LikeTheVideo}
             />
           ) : (
-            <AiOutlineHeart
-              className="icon HeartIcon"
-              onClick={() => setLike(!isLike)}
-            />
+            <AiOutlineHeart className="icon HeartIcon" onClick={LikeTheVideo} />
           )}
-          <p>{isLike ? likes + 1 : likes}</p>
+
+          <p>{likes}</p>
         </div>
 
         <div className="sidebar__option">

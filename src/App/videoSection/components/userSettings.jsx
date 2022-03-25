@@ -32,8 +32,6 @@ const UserSettings = ({ user }) => {
     signOut(auth).then(alert("Log Out Done"));
   };
 
-  console.log(user);
-
   return (
     <div className="userInfo__container">
       <Button variant="outlined" size="medium" className="userinfo__uploadBtn">

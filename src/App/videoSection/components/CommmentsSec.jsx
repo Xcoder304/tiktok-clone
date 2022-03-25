@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import { RiSendPlaneFill } from "react-icons/ri";
 import "../../Styles/video/comments.css";
 
-const CommmentsSec = ({ OpenComments, setComments }) => {
+const CommmentsSec = ({ OpenComments, setComments, comments }) => {
   return (
     <div
       className={
@@ -23,17 +23,22 @@ const CommmentsSec = ({ OpenComments, setComments }) => {
           />
         </IconButton>
       </div>
-      <div className="comments__wapper">
-        <div className="comment">
-          <div className="comment__info">
-            <span className="userName">kaif</span>
-            <span className="time">12-6-2020</span>
+
+      {comments.map((data) => {
+        return (
+          <div className="comments__wapper">
+            <div className="comment">
+              <div className="comment__info">
+                <span className="userName">{data.data().username}</span>
+                <span className="time">12-6-2020</span>
+              </div>
+              <div className="comment__text">
+                <p>{data.data().comment}</p>
+              </div>
+            </div>
           </div>
-          <div className="comment__text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-        </div>
-      </div>
+        );
+      })}
 
       {/* add comment */}
       <div className="comment__addComent">

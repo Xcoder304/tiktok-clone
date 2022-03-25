@@ -28,7 +28,6 @@ const Signup = ({ user, setuser }) => {
         setuser(null);
       }
     });
-
     return () => unsub();
   }, [user, username]);
 

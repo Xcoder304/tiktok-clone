@@ -12,8 +12,6 @@ const App = () => {
   const [Allvideos, setvideos] = useState([]);
   const [user, setuser] = useState(null);
 
-  console.log(user);
-
   useEffect(() => {
     const collectionRef = collection(db, "videos");
     const q = query(collectionRef);
@@ -35,6 +33,7 @@ const App = () => {
                 <Videos
                   key={id}
                   videoId={id}
+                  user={user}
                   videoSrc={videosrc}
                   UserName={username}
                   caption={caption}

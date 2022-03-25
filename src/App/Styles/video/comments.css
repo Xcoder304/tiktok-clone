@@ -69,9 +69,9 @@
 }
 .comment__closeButton .icon {
   font-size: 1.7rem;
-  width: 30px;
-  height: 30px;
-  color: #ef2950;
+  width: 20px;
+  height: 20px;
+  color: #fff;
   border: none;
   border-radius: 50%;
 }
