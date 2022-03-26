@@ -57,96 +57,104 @@ const UserSettings = ({ user }) => {
         </Link>
       )}
 
-      <React.Fragment>
-        <Box
-          sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
-        >
-          <Tooltip title="Account settings">
-            <IconButton
-              onClick={handleClick}
-              size="small"
-              sx={{ ml: 2 }}
-              aria-controls={open ? "account-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
+      {user && (
+        <>
+          <React.Fragment>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                textAlign: "center",
+              }}
             >
-              <BsThreeDotsVertical
-                sx={{ width: 32, height: 32 }}
-                className="openUserSettings"
-              />
-            </IconButton>
-          </Tooltip>
-        </Box>
-        <Menu
-          anchorEl={anchorEl}
-          id="account-menu"
-          open={open}
-          onClose={handleClose}
-          onClick={handleClose}
-          PaperProps={{
-            elevation: 0,
-            sx: {
-              overflow: "visible",
-              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-              mt: 1.5,
-              "& .MuiAvatar-root": {
-                width: 32,
-                height: 32,
-                ml: -0.5,
-                mr: 1,
-              },
-              "&:before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                right: 14,
-                width: 10,
-                height: 10,
-                bgcolor: "background.paper",
-                transform: "translateY(-50%) rotate(45deg)",
-                zIndex: 0,
-              },
-            },
-          }}
-          transformOrigin={{ horizontal: "right", vertical: "top" }}
-          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-        >
-          <MenuItem>
-            <Avatar /> {user?.displayName}
-          </MenuItem>
+              <Tooltip title="Account settings">
+                <IconButton
+                  onClick={handleClick}
+                  size="small"
+                  sx={{ ml: 2 }}
+                  aria-controls={open ? "account-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                >
+                  <BsThreeDotsVertical
+                    sx={{ width: 32, height: 32 }}
+                    className="openUserSettings"
+                  />
+                </IconButton>
+              </Tooltip>
+            </Box>
+            <Menu
+              anchorEl={anchorEl}
+              id="account-menu"
+              open={open}
+              onClose={handleClose}
+              onClick={handleClose}
+              PaperProps={{
+                elevation: 0,
+                sx: {
+                  overflow: "visible",
+                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  mt: 1.5,
+                  "& .MuiAvatar-root": {
+                    width: 32,
+                    height: 32,
+                    ml: -0.5,
+                    mr: 1,
+                  },
+                  "&:before": {
+                    content: '""',
+                    display: "block",
+                    position: "absolute",
+                    top: 0,
+                    right: 14,
+                    width: 10,
+                    height: 10,
+                    bgcolor: "background.paper",
+                    transform: "translateY(-50%) rotate(45deg)",
+                    zIndex: 0,
+                  },
+                },
+              }}
+              transformOrigin={{ horizontal: "right", vertical: "top" }}
+              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            >
+              <MenuItem>
+                <Avatar /> {user?.displayName}
+              </MenuItem>
+              <Divider />
+              <MenuItem>
+                <ListItemIcon>
+                  <FaHeart fontSize="medium" style={{ marginLeft: "2.7px" }} />
+                </ListItemIcon>
+                My Like Videos
+              </MenuItem>
 
-          <Divider />
+              <MenuItem onClick={() => navigate("/signup")}>
+                <ListItemIcon>
+                  <PersonAdd fontSize="small" />
+                </ListItemIcon>
+                Add another account
+              </MenuItem>
 
-          <MenuItem>
-            <ListItemIcon>
-              <FaHeart fontSize="medium" style={{ marginLeft: "2.7px" }} />
-            </ListItemIcon>
-            My Like Videos
-          </MenuItem>
+              <MenuItem>
+                <ListItemIcon>
+                  <Settings fontSize="small" style={{ marginLeft: "2.7px" }} />
+                </ListItemIcon>
+                Settings
+              </MenuItem>
 
-          <MenuItem onClick={() => navigate("/signup")}>
-            <ListItemIcon>
-              <PersonAdd fontSize="small" />
-            </ListItemIcon>
-            Add another account
-          </MenuItem>
-
-          <MenuItem>
-            <ListItemIcon>
-              <Settings fontSize="small" style={{ marginLeft: "2.7px" }} />
-            </ListItemIcon>
-            Settings
-          </MenuItem>
-
-          <MenuItem onClick={() => signOut(auth).then("Login Out Sucessfully")}>
-            <ListItemIcon>
-              <Logout fontSize="small" style={{ marginLeft: "5.7px" }} />
-            </ListItemIcon>
-            Logout
-          </MenuItem>
-        </Menu>
-      </React.Fragment>
+              <MenuItem
+                onClick={() => signOut(auth).then("Login Out Sucessfully")}
+              >
+                <ListItemIcon>
+                  <Logout fontSize="small" style={{ marginLeft: "5.7px" }} />
+                </ListItemIcon>
+                Logout
+              </MenuItem>
+            </Menu>
+          </React.Fragment>
+        </>
+      )}
     </div>
   );
 };

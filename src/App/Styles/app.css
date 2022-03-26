@@ -61,7 +61,7 @@
 @media (max-width: 800px) {
   .divder {
     /* background: red; */
-    padding: 37px 0 !important;
+    padding: 10px 0 !important;
   }
   .video__container {
     width: 90vw !important;
