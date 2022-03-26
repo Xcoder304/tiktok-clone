@@ -7,6 +7,7 @@ import { db } from "./firebase/config";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./videoSection/components/Login";
 import Signup from "./videoSection/components/SignUp";
+import UploadVideo from "./videoSection/components/UploadVideo";
 
 const App = () => {
   const [Allvideos, setvideos] = useState([]);
@@ -14,7 +15,7 @@ const App = () => {
 
   useEffect(() => {
     const collectionRef = collection(db, "videos");
-    const q = query(collectionRef);
+    const q = query(collectionRef, orderBy("time", "desc"));
     const display = onSnapshot(q, (snapshot) => {
       setvideos(snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() })));
     });
@@ -50,6 +51,7 @@ const App = () => {
             path="/signup"
             element={<Signup user={user} setuser={setuser} />}
           />
+          <Route path="/uploadvideo" element={<UploadVideo user={user} />} />
         </Routes>
       </div>
     </Router>

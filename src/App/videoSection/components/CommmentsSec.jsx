@@ -1,10 +1,30 @@
-import React from "react";
+import { useState } from "react";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import IconButton from "@mui/material/IconButton";
 import { RiSendPlaneFill } from "react-icons/ri";
 import "../../Styles/video/comments.css";
+import { db } from "../../firebase/config";
+import { addDoc, collection, query, serverTimestamp } from "firebase/firestore";
 
-const CommmentsSec = ({ OpenComments, setComments, comments }) => {
+const CommmentsSec = ({
+  OpenComments,
+  setComments,
+  comments,
+  videoId,
+  user,
+}) => {
+  const [commentTxt, setcommentTxt] = useState("");
+
+  const AddComment = async (e) => {
+    e.preventDefault();
+    await addDoc(collection(db, "videos", videoId, "comments"), {
+      comment: commentTxt,
+      username: user?.displayName,
+      time: serverTimestamp(),
+    });
+    setcommentTxt("");
+  };
+
   return (
     <div
       className={
@@ -25,12 +45,13 @@ const CommmentsSec = ({ OpenComments, setComments, comments }) => {
       </div>
 
       {comments.map((data) => {
+        console.log(data);
         return (
           <div className="comments__wapper">
             <div className="comment">
               <div className="comment__info">
                 <span className="userName">{data.data().username}</span>
-                <span className="time">12-6-2020</span>
+                {/* <span className="time">{new Date().date.date().time}</span> */}
               </div>
               <div className="comment__text">
                 <p>{data.data().comment}</p>
@@ -42,11 +63,16 @@ const CommmentsSec = ({ OpenComments, setComments, comments }) => {
 
       {/* add comment */}
       <div className="comment__addComent">
-        <form>
-          <input type="text" placeholder="Comment.." />
-          <div className="comment__btn">
+        <form onSubmit={AddComment}>
+          <input
+            type="text"
+            placeholder="Comment.."
+            onChange={(e) => setcommentTxt(e.target.value)}
+            value={commentTxt}
+          />
+          <button type="submit" className="comment__btn">
             <RiSendPlaneFill className="icon" />
-          </div>
+          </button>
         </form>
       </div>
     </div>

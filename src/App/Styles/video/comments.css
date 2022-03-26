@@ -78,7 +78,7 @@
 
 .comment__addComent {
   width: 100%;
-  position: sticky;
+  position: sticky !important;
   bottom: 0;
   padding: 3px 2% 6px;
   z-index: 120;

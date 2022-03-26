@@ -34,9 +34,17 @@ const UserSettings = ({ user }) => {
 
   return (
     <div className="userInfo__container">
-      <Button variant="outlined" size="medium" className="userinfo__uploadBtn">
-        upload
-      </Button>
+      {user && (
+        <Link to="/uploadvideo">
+          <Button
+            variant="outlined"
+            size="medium"
+            className="userinfo__uploadBtn"
+          >
+            upload
+          </Button>
+        </Link>
+      )}
       {user ? (
         ""
       ) : (

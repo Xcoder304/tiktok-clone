@@ -27,6 +27,7 @@
   font-size: 1.7rem;
   color: rgba(0, 0, 0, 0.9);
   font-weight: 700;
+  text-transform: capitalize;
 }
 .signup__header .signup__closingBtn {
   position: absolute;

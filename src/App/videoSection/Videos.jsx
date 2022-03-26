@@ -12,6 +12,7 @@ import {
   setDoc,
   doc,
   deleteDoc,
+  orderBy,
 } from "firebase/firestore";
 
 const Videos = ({ videoId, videoSrc, UserName, caption, songName, user }) => {
@@ -25,7 +26,10 @@ const Videos = ({ videoId, videoSrc, UserName, caption, songName, user }) => {
   // for getting all the comments
   useEffect(() => {
     onSnapshot(
-      query(collection(db, "videos", videoId, "comments")),
+      query(
+        collection(db, "videos", videoId, "comments"),
+        orderBy("time", "desc")
+      ),
       (snapshot) => {
         setcomments(snapshot.docs);
       }
@@ -43,7 +47,7 @@ const Videos = ({ videoId, videoSrc, UserName, caption, songName, user }) => {
   }, [db]);
 
   useEffect(() => {
-    sethasLiked(likes.findIndex((like) => like?.id === user.uid) != -1);
+    sethasLiked(likes.findIndex((like) => like?.id === user?.uid) != -1);
   });
 
   const LikeTheVideo = async () => {
@@ -79,12 +83,15 @@ const Videos = ({ videoId, videoSrc, UserName, caption, songName, user }) => {
         comments={allcomments.length}
         LikeTheVideo={LikeTheVideo}
         hasLiked={hasLiked}
+        user={user}
       />
       {/* sections */}
       <CommmentsSec
         OpenComments={OpenComments}
         setComments={setOpenComments}
         comments={allcomments}
+        videoId={videoId}
+        user={user}
       />
     </div>
   );

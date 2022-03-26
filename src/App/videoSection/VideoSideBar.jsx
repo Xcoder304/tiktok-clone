@@ -4,8 +4,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { FaRegCommentDots } from "react-icons/fa";
 import { FiShare2 } from "react-icons/fi";
 import "../Styles/video/sidebar.css";
-import { db } from "../firebase/config";
-import { addDoc, collection, updateDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const VideoSideBar = ({
   OpenComments,
@@ -15,7 +14,9 @@ const VideoSideBar = ({
   shares,
   LikeTheVideo,
   hasLiked,
+  user,
 }) => {
+  const navigate = useNavigate();
   return (
     <div className="video__sidebar">
       <div className="sidebar__wapper">
@@ -23,10 +24,13 @@ const VideoSideBar = ({
           {hasLiked ? (
             <AiFillHeart
               className="icon HeartIcon isLike"
-              onClick={LikeTheVideo}
+              onClick={user ? LikeTheVideo : () => navigate("/login")}
             />
           ) : (
-            <AiOutlineHeart className="icon HeartIcon" onClick={LikeTheVideo} />
+            <AiOutlineHeart
+              className="icon HeartIcon"
+              onClick={user ? LikeTheVideo : () => navigate("/login")}
+            />
           )}
 
           <p>{likes}</p>
@@ -35,7 +39,9 @@ const VideoSideBar = ({
         <div className="sidebar__option">
           <FaRegCommentDots
             className="icon CommentIcon"
-            onClick={() => setComments(!OpenComments)}
+            onClick={
+              user ? () => setComments(!OpenComments) : () => navigate("/login")
+            }
           />
           <p>{comments}</p>
         </div>
