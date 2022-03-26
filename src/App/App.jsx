@@ -3,11 +3,12 @@ import Videos from "./videoSection/Videos";
 import "./Styles/app.css";
 import UserSettings from "./videoSection/components/userSettings";
 import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
-import { db } from "./firebase/config";
+import { db, auth } from "./firebase/config";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./videoSection/components/Login";
 import Signup from "./videoSection/components/SignUp";
 import UploadVideo from "./videoSection/components/UploadVideo";
+import { onAuthStateChanged } from "firebase/auth";
 
 const App = () => {
   const [Allvideos, setvideos] = useState([]);
@@ -21,12 +22,24 @@ const App = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (authUser) => {
+      if (authUser) {
+        setuser(authUser);
+      } else {
+        setuser(null);
+      }
+    });
+    return () => unsub();
+  }, []);
+
   return (
     <Router>
       <div className="container">
         <div className="logoWappper">
           <img src="../images/logo.png" />
         </div>
+        <div className="divder"></div>
         <div className="video__container">
           {Allvideos.map(
             ({ id, data: { videosrc, username, caption, songName } }) => {

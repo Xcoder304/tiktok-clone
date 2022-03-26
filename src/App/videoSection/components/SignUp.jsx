@@ -5,11 +5,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import IconButton from "@mui/material/IconButton";
 import { Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/config";
 
 const Signup = ({ user, setuser }) => {
@@ -20,17 +16,6 @@ const Signup = ({ user, setuser }) => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (auth) => {
-      if (auth) {
-        setuser(auth);
-      } else {
-        setuser(null);
-      }
-    });
-    return () => unsub();
-  }, [user, username]);
-
   const SignUpTheUser = async () => {
     try {
       setLoading(true);
@@ -39,10 +24,11 @@ const Signup = ({ user, setuser }) => {
         email,
         password
       );
-      const settheusernam = await updateProfile(auth.currentUser, {
+      let settheusernam = await updateProfile(auth.currentUser, {
         displayName: username,
       });
       setLoading(false);
+
       navigate("/");
     } catch {
       setLoading(false);

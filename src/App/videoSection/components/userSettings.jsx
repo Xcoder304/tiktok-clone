@@ -29,7 +29,7 @@ const UserSettings = ({ user }) => {
   };
 
   const SignOutUser = () => {
-    signOut(auth).then(alert("Log Out Done"));
+    signOut(auth);
   };
 
   return (

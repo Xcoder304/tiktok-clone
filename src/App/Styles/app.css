@@ -29,9 +29,12 @@
   height: 100%;
   filter: invert(1);
 }
+.divder {
+  padding: 0;
+}
 .userInfo__container {
   position: fixed;
-  top: 5%;
+  top: 4.5%;
   right: 3%;
   display: flex;
   gap: 17px;
@@ -53,4 +56,16 @@
 .openUserSettings {
   color: #fff;
   font-size: 1.2rem;
+}
+
+@media (max-width: 800px) {
+  .divder {
+    /* background: red; */
+    padding: 37px 0 !important;
+  }
+  .video__container {
+    width: 90vw !important;
+    /* max-width: 400px !important; */
+    height: 80vh !important;
+  }
 }
