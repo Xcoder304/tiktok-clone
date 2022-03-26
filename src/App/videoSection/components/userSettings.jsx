@@ -16,7 +16,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { auth } from "../../firebase/config";
 import { signOut } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const UserSettings = ({ user }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -28,9 +28,7 @@ const UserSettings = ({ user }) => {
     setAnchorEl(null);
   };
 
-  const SignOutUser = () => {
-    signOut(auth);
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="userInfo__container">
@@ -117,26 +115,31 @@ const UserSettings = ({ user }) => {
           <MenuItem>
             <Avatar /> {user?.displayName}
           </MenuItem>
+
           <Divider />
+
           <MenuItem>
             <ListItemIcon>
               <FaHeart fontSize="medium" style={{ marginLeft: "2.7px" }} />
             </ListItemIcon>
             My Like Videos
           </MenuItem>
-          <MenuItem>
+
+          <MenuItem onClick={() => navigate("/signup")}>
             <ListItemIcon>
               <PersonAdd fontSize="small" />
             </ListItemIcon>
             Add another account
           </MenuItem>
+
           <MenuItem>
             <ListItemIcon>
               <Settings fontSize="small" style={{ marginLeft: "2.7px" }} />
             </ListItemIcon>
             Settings
           </MenuItem>
-          <MenuItem onClick={SignOutUser}>
+
+          <MenuItem onClick={() => signOut(auth).then("Login Out Sucessfully")}>
             <ListItemIcon>
               <Logout fontSize="small" style={{ marginLeft: "5.7px" }} />
             </ListItemIcon>
