@@ -61,11 +61,11 @@
 @media (max-width: 800px) {
   .divder {
     /* background: red; */
-    padding: 10px 0 !important;
+    padding: 17px 0 !important;
   }
   .video__container {
     width: 90vw !important;
     /* max-width: 400px !important; */
-    height: 80vh !important;
+    height: 85vh !important;
   }
 }
