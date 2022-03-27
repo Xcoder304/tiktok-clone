@@ -34,8 +34,8 @@
   gap: 7px;
   align-items: center;
 }
-.songname .musicIcon {
-  font-size: 1rem;
+.musicIcon {
+  font-size: 1rem !important;
   color: #fff;
 }
 .songname > span {
@@ -44,6 +44,7 @@
   overflow: hidden;
 }
 .songname > span > p {
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   animation: somgNameSilder 6s linear infinite;
 }

@@ -10,6 +10,7 @@
 
 .login__container {
   width: 94vw;
+  max-width: 480px !important;
   padding: 15px 2%;
   /* height: 200px; */
   border: none;

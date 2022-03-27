@@ -14,6 +14,7 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
+import { deepOrange } from "@mui/material/colors";
 import { auth } from "../../firebase/config";
 import { signOut } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
@@ -119,15 +120,14 @@ const UserSettings = ({ user }) => {
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
               <MenuItem>
-                <Avatar /> {user?.displayName}
+                <Avatar
+                  sx={{ bgcolor: deepOrange[500] }}
+                  alt="Remy Sharp"
+                  src="/broken-image.jpg"
+                />
+                {user?.displayName}
               </MenuItem>
               <Divider />
-              <MenuItem>
-                <ListItemIcon>
-                  <FaHeart fontSize="medium" style={{ marginLeft: "2.7px" }} />
-                </ListItemIcon>
-                My Like Videos
-              </MenuItem>
 
               <MenuItem onClick={() => navigate("/signup")}>
                 <ListItemIcon>

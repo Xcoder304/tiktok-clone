@@ -113,12 +113,16 @@ const UploadVideo = ({ user }) => {
             Upload Video
           </Button>
         </form>
-        <div className="videoUpload__progressbarContainer">
-          <div className="videoUpload__progressbar">
-            <span style={{ width: `${progessLoading}%` }}></span>
+        {loading ? (
+          <div className="videoUpload__progressbarContainer">
+            <div className="videoUpload__progressbar">
+              <span style={{ width: `${progessLoading}%` }}></span>
+            </div>
+            <h3>{progessLoading}%</h3>
           </div>
-          <h3>{progessLoading}%</h3>
-        </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

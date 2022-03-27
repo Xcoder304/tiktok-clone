@@ -9,7 +9,8 @@
 }
 
 .videoUpload__container {
-  width: 440px;
+  width: 94vw;
+  max-width: 480px;
   padding: 15px 2%;
   /* height: 200px; */
   border: none;
@@ -38,8 +39,8 @@
 }
 
 .videoUpload__container form .videoUpload__uploadBtn {
-  margin-top: 20px;
   width: 90% !important;
+  margin: 20px auto 0;
   background: #ef2950 !important;
   color: #fff !important;
   padding: 13px 0;
@@ -63,7 +64,7 @@
   cursor: pointer;
   font-weight: 700;
   user-select: none;
-  margin-top: 10px;
+  margin: 10px 0 0;
 }
 .videoUpload__progressbarContainer {
   width: 100%;
