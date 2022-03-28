@@ -107,7 +107,9 @@ const UploadVideo = ({ user }) => {
               type="file"
               onChange={GetTheVideo}
             />
-            <span className="videoName">{video?.name}</span>
+            <span className="videoName">
+              {video?.name.substring(0, 40).concat("....")}
+            </span>
             {/* <div className="videoUpload__video__info">
               <h4>
                 video Length : <span>25s</span>

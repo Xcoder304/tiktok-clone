@@ -40,13 +40,14 @@
 }
 .songname > span {
   padding: 0 10px;
-  width: 95%;
+  width: 100%;
   overflow: hidden;
 }
 .songname > span > p {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   animation: somgNameSilder 6s linear infinite;
+  white-space: nowrap;
 }
 
 @keyframes somgNameSilder {
