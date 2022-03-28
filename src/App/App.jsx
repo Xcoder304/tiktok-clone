@@ -33,8 +33,6 @@ const App = () => {
     return () => unsub();
   }, []);
 
-  console.log(user);
-
   return (
     <Router>
       <div className="container">

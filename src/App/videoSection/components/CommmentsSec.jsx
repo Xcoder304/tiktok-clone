@@ -2,6 +2,7 @@ import { useState } from "react";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import IconButton from "@mui/material/IconButton";
 import { RiSendPlaneFill } from "react-icons/ri";
+import Avatar from "@mui/material/Avatar";
 import "../../Styles/video/comments.css";
 import { db } from "../../firebase/config";
 import { addDoc, collection, query, serverTimestamp } from "firebase/firestore";

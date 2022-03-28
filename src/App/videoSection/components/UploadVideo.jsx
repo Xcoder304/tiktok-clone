@@ -97,7 +97,26 @@ const UploadVideo = ({ user }) => {
             onChange={(e) => setsongname(e.target.value)}
             autoComplete="off"
           />
-          <input type="file" onChange={GetTheVideo} />
+          <div className="videoUpload__chooseFileConatainer">
+            <label htmlFor="files" className="videoUpload__chooseFileBtn">
+              Selete Your Video
+            </label>
+            <input
+              id="files"
+              style={{ visibility: "hidden" }}
+              type="file"
+              onChange={GetTheVideo}
+            />
+            <span className="videoName">{video?.name}</span>
+            {/* <div className="videoUpload__video__info">
+              <h4>
+                video Length : <span>25s</span>
+              </h4>
+              <h4>
+                file size : <span>{}</span>
+              </h4>
+            </div> */}
+          </div>
 
           <Button
             variant="contained"
