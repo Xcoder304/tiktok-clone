@@ -3,6 +3,7 @@ import "../Styles/video/video.css";
 import VideoFooter from "./VideoFooter";
 import VideoSideBar from "./VideoSideBar";
 import CommmentsSec from "./components/CommmentsSec";
+import { AiFillHeart } from "react-icons/ai";
 import { db } from "../firebase/config";
 import {
   collection,
@@ -65,11 +66,25 @@ const Videos = ({ videoId, videoSrc, UserName, caption, songName, user }) => {
     isVideoPlaying ? VideoPlay.current.pause() : VideoPlay.current.play();
   };
 
+  const DoubleClickVideo = async () => {
+    if (hasLiked) {
+      await deleteDoc(doc(db, "videos", videoId, "likes", user?.uid));
+    } else {
+      await setDoc(doc(db, "videos", videoId, "likes", user?.uid), {
+        username: user?.displayName,
+      });
+    }
+  };
+
   return (
     <div className="video">
+      <div className={`video__likenAimation ${hasLiked ? "Like" : ""}`}>
+        <AiFillHeart className="icon" />
+      </div>
       <video
         src={videoSrc}
         onClick={PlayTheVideo}
+        onDoubleClick={DoubleClickVideo}
         ref={VideoPlay}
         loop
         className="video__player"
