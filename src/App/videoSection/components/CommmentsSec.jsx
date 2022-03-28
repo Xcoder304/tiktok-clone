@@ -45,7 +45,6 @@ const CommmentsSec = ({
       </div>
 
       {comments.map((data) => {
-        console.log(data);
         return (
           <div className="comments__wapper">
             <div className="comment">

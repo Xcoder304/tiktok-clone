@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -7,17 +7,15 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { FaHeart } from "react-icons/fa";
-import { deepOrange } from "@mui/material/colors";
 import { auth } from "../../firebase/config";
 import { signOut } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
+import "../../Styles/video/usersetting.css";
 
 const UserSettings = ({ user }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -29,6 +27,7 @@ const UserSettings = ({ user }) => {
     setAnchorEl(null);
   };
 
+  // my states
   const navigate = useNavigate();
 
   return (
@@ -121,9 +120,9 @@ const UserSettings = ({ user }) => {
             >
               <MenuItem>
                 <Avatar
-                  sx={{ bgcolor: deepOrange[500] }}
-                  alt="Remy Sharp"
-                  src="/broken-image.jpg"
+                  alt={user?.displayName}
+                  src={user?.photoURL}
+                  className="userAvatar"
                 />
                 {user?.displayName}
               </MenuItem>

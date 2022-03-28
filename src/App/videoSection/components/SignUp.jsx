@@ -7,8 +7,9 @@ import { Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/config";
+import randomAvatar from "../../Data/randomAvatar";
 
-const Signup = ({ user, setuser }) => {
+const Signup = () => {
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -16,26 +17,25 @@ const Signup = ({ user, setuser }) => {
 
   const navigate = useNavigate();
 
+  const userProfile =
+    randomAvatar[Math.floor(Math.random() * randomAvatar.length)];
+
   const SignUpTheUser = async () => {
     try {
       setLoading(true);
-      const signupuser = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      let settheusernam = await updateProfile(auth.currentUser, {
+      await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(auth.currentUser, {
         displayName: username,
+        photoURL: userProfile,
       });
       setLoading(false);
-
       navigate("/");
-    } catch {
+    } catch (err) {
       setLoading(false);
       setusername("");
       setemail("");
       setpassword("");
-      alert("sorry someThing is wrong please try agian");
+      alert(err.message);
     }
   };
 
