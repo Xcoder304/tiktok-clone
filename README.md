@@ -1,6 +1,6 @@
 # This is the TikTok clone(v0.1.7).
 
-* This is just normal build not to fancy and complex
+* This is just normal build not to fancy and complex click here 👉 https://tiktok-clone-7d9d6.web.app/
 
 
 # What You Get 😱😱
